@@ -1,5 +1,5 @@
 /**
- * The starting point of the application.
+ * Mongoose model CrudSnippet.
  *
  * @author Emilia Hansson <eh222yn@student.lnu.se>
  * @version 1.0.0
