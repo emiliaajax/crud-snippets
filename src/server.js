@@ -51,6 +51,24 @@ try {
     next()
   })
   app.use('/', router)
+  app.use(function (err, req, res, next) {
+    if (err.status === 403) {
+      return res
+        .status(403)
+        .sendFile(join(directoryFullName, 'views', 'errors', '403.html'))
+    }
+    if (err.status === 404) {
+      return res
+        .status(404)
+        .sendFile(join(directoryFullName, 'views', 'errors', '404.html'))
+    }
+    if (req.app.get('env') !== 'development') {
+      return res
+        .status(500)
+        .sendFile(join(directoryFullName, 'views', 'errors', '500.html'))
+    }
+    res.status(err.status || 500).render('errors/error', { error: err })
+  })
   app.listen(process.env.PORT, () => {
     console.log(`Server running at http://localhost:${process.env.PORT}`)
     console.log('Press Ctrl-C to terminate...')
