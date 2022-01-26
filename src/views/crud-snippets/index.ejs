@@ -1,0 +1,14 @@
+<h1>CRUD Snippets</h1>
+
+<div>
+  <% if (viewData?.crudSnippets?.length) { %>
+    <% viewData.crudSnippets.forEach(snippet => { %>
+      <article>
+        <h2><%= snippet.user %></h2>
+        <p><%= snippet.snippet %></p>
+      </article>
+    <% }) %>
+  <% } else { %>
+    <p>No snippets to be displayed...</p>
+  <% } %>
+</div>
