@@ -2,12 +2,14 @@
 
 <div>
   <% if (viewData?.crudSnippets?.length) { %>
-    <% viewData.crudSnippets.forEach(snippet => { %>
+    <% for (const snippet of viewData.crudSnippets) { %>
       <article>
         <h2><%= snippet.user %></h2>
         <p><%= snippet.snippet %></p>
       </article>
-    <% }) %>
+        <a href="./<%= snippet.id %>/update">Update</a>
+        <a href="./<%= snippet.id %>/delete">Delete</a>
+    <% } %>
   <% } else { %>
     <p>No snippets to be displayed...</p>
   <% } %>

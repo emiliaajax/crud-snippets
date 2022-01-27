@@ -15,3 +15,9 @@ router.get('/', controller.index)
 
 router.get('/create', controller.createForm)
 router.post('/create', controller.create)
+
+router.get('/:id/update', controller.update)
+router.post('/:id/update', controller.updateSnippet)
+
+router.get('/:id/delete', controller.delete)
+router.post('/:id/delete', controller.deleteSnippet)

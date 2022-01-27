@@ -17,7 +17,24 @@ const schema = new mongoose.Schema({
     required: true
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toObject: {
+    virtuals: true,
+    /**
+     * Test.
+     *
+     * @param {*} doc Test.
+     * @param {*} ret Test.
+     */
+    transform: function (doc, ret) {
+      delete ret._id
+      delete ret.__v
+    }
+  }
+})
+
+schema.virtual('id').get(function () {
+  return this._id.toHexString()
 })
 
 export const CrudSnippet = mongoose.model('CrudSnippet', schema)
