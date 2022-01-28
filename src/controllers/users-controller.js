@@ -36,11 +36,44 @@ export class UsersController {
           throw new Error('Failed to regenerate session.')
         }
         req.session.user = user
-        res.redirect('.')
+        res.redirect('..')
       })
     } catch (error) {
       req.session.flash = { type: 'danger', text: error.message }
       res.redirect('./login')
+    }
+  }
+
+  /**
+   * Test.
+   *
+   * @param {*} req Test.
+   * @param {*} res Test.
+   */
+  async register (req, res) {
+    res.render('users/register')
+  }
+
+  /**
+   * Test.
+   *
+   * @param {*} req Test.
+   * @param {*} res Test.
+   * @param {*} next Test.
+   */
+  async registerPost (req, res, next) {
+    try {
+      const user = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+      })
+      await user.save()
+      req.session.flash = { type: 'success', text: 'You have registered successfully!' }
+      res.redirect('./login')
+    } catch (error) {
+      req.session.flash = { type: 'danger', text: error.message }
+      res.redirect('./register')
     }
   }
 }
