@@ -10,7 +10,7 @@ import { User } from '../models/user.js'
 /**
  *
  */
-export class UserController {
+export class UsersController {
   /**
    * Test.
    *
