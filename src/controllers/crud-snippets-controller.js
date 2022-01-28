@@ -63,7 +63,7 @@ export class CrudSnippetsController {
       res.redirect('.')
     } catch (error) {
       req.session.flash = { type: 'danger', text: error.message }
-      res.redirect('.')
+      res.redirect('./create')
     }
   }
 
