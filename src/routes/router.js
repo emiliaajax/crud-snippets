@@ -8,8 +8,10 @@
 import express from 'express'
 import createError from 'http-errors'
 import { router as crudSnippetsRouter } from './crud-snippets-router.js'
+import { router as usersRouter } from './users-router.js'
 
 export const router = express.Router()
 
 router.use('/', crudSnippetsRouter)
+router.use('/users', usersRouter)
 router.use('*', (req, res, next) => next(createError(404)))

@@ -16,6 +16,16 @@ export class UsersController {
    *
    * @param {*} req Test.
    * @param {*} res Test.
+   */
+  async login (req, res) {
+    res.render('users/login')
+  }
+
+  /**
+   * Test.
+   *
+   * @param {*} req Test.
+   * @param {*} res Test.
    * @param {*} next Test.
    */
   async loginPost (req, res, next) {
