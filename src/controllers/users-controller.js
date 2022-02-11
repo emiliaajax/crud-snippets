@@ -49,6 +49,23 @@ export class UsersController {
    *
    * @param {*} req Test.
    * @param {*} res Test.
+   * @param {*} next Test.
+   */
+  async logout (req, res, next) {
+    req.session.destroy((error) => {
+      if (error) {
+        next(error)
+      } else {
+        res.redirect('..')
+      }
+    })
+  }
+
+  /**
+   * Test.
+   *
+   * @param {*} req Test.
+   * @param {*} res Test.
    */
   async register (req, res) {
     res.render('users/register')

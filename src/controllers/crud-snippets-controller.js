@@ -72,7 +72,7 @@ export class CrudSnippetsController {
   async create (req, res) {
     try {
       const crudSnippet = new CrudSnippet({
-        user: req.body.user,
+        user: req.session.user.username,
         snippet: req.body.snippet
       })
       await crudSnippet.save()
