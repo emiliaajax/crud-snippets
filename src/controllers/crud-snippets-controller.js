@@ -18,6 +18,23 @@ export class CrudSnippetsController {
    * @param {*} req Test.
    * @param {*} res Test.
    * @param {*} next Test.
+   * @returns {*} Next middleware.
+   */
+  async authorize (req, res, next) {
+    if (!req.session.user) {
+      const error = new Error('Forbidden')
+      error.statusCode = 403
+      return next(error)
+    }
+    next()
+  }
+
+  /**
+   * Test.
+   *
+   * @param {*} req Test.
+   * @param {*} res Test.
+   * @param {*} next Test.
    */
   async index (req, res, next) {
     try {
