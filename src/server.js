@@ -48,6 +48,9 @@ try {
       res.locals.flash = req.session.flash
       delete req.session.flash
     }
+    if (req.session.user) {
+      res.locals.user = req.session.user
+    }
     next()
   })
   app.use('/', router)
