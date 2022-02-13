@@ -5,6 +5,7 @@
  * @version 1.0.0
  */
 
+import createError from 'http-errors'
 import { formatDistanceToNow } from 'date-fns'
 import { CrudSnippet } from '../models/crud-snippet.js'
 
@@ -22,9 +23,7 @@ export class CrudSnippetsController {
    */
   async authorize (req, res, next) {
     if (!req.session.user) {
-      const error = new Error('Forbidden')
-      error.statusCode = 403
-      return next(error)
+      return next(createError(404, 'Not Found'))
     }
     next()
   }

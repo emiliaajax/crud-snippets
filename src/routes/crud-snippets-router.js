@@ -13,7 +13,7 @@ const controller = new CrudSnippetsController()
 
 router.get('/', controller.index)
 
-router.get('/create', controller.createForm)
+router.get('/create', controller.authorize, controller.createForm)
 router.post('/create', controller.authorize, controller.create)
 
 router.get('/:id/update', controller.authorize, controller.update)
