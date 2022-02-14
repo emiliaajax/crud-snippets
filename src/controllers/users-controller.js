@@ -6,6 +6,7 @@
  */
 
 import { User } from '../models/user.js'
+import createError from 'http-errors'
 
 /**
  *
@@ -50,8 +51,12 @@ export class UsersController {
    * @param {*} req Test.
    * @param {*} res Test.
    * @param {*} next Test.
+   * @returns {*} test.
    */
   async logout (req, res, next) {
+    if (!req.session.user) {
+      return next(createError(404))
+    }
     req.session.destroy((error) => {
       if (error) {
         next(error)
