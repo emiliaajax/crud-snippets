@@ -23,7 +23,12 @@ export class CrudSnippetsController {
    */
   async authorize (req, res, next) {
     if (!req.session.user) {
-      return next(createError(404, 'Not Found'))
+      return next(createError(404))
+    } else if (req.params.id) {
+      const crudSnippet = await CrudSnippet.findById(req.params.id)
+      if (req.session.user.username !== crudSnippet.user) {
+        return next(createError(403))
+      }
     }
     next()
   }
@@ -43,14 +48,35 @@ export class CrudSnippetsController {
             id: crudSnippet._id,
             createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
             user: crudSnippet.user,
-            snippet: crudSnippet.snippet
+            snippet: crudSnippet.snippet,
+            /**
+             * Returns true if the user is the creator, false otherwise.
+             *
+             * @returns {boolean} True if the user is the creator, false otherwise.
+             */
+            creator: function () {
+              if (req.session.user) {
+                return req.session.user.username === crudSnippet.user
+              } else {
+                return false
+              }
+            }
           }))
       }
+      console.log(viewData)
+      console.log(req.session.user)
       res.render('crud-snippets/index', { viewData })
     } catch (error) {
       next(error)
     }
   }
+
+  // isCreator (req, snippet) {
+  //   if (req.session.user) {
+  //     return req.session.user.username === snippet
+  //   }
+  //   return false
+  // }
 
   /**
    * Test.

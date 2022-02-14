@@ -7,8 +7,10 @@
         <h2><%= snippet.user %></h2>
         <p><%= snippet.snippet %></p>
       </article>
+      <% if (snippet.creator() === true) { %>
         <a href="./<%= snippet.id %>/update">Update</a>
         <a href="./<%= snippet.id %>/delete">Delete</a>
+      <% } %>
     <% } %>
   <% } else { %>
     <p>No snippets to be displayed...</p>
