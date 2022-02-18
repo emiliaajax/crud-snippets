@@ -1,0 +1,15 @@
+
+main {
+  margin-top: 50px;
+}
+
+article {
+  width: 100%;
+  color: black;
+  background-color: #dcdcdc;
+  font-size: 1rem;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid black;
+  font-family: 'Inconsolata', monospace;
+}
