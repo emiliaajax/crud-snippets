@@ -63,8 +63,6 @@ export class CrudSnippetsController {
             }
           }))
       }
-      console.log(viewData)
-      console.log(req.session.user)
       res.render('crud-snippets/index', { viewData })
     } catch (error) {
       next(error)
