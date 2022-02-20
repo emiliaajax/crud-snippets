@@ -14,7 +14,8 @@ const schema = new mongoose.Schema({
   },
   snippet: {
     type: String,
-    required: true
+    required: true,
+    maxlength: [8000, 'The snippet can\'t exceed 4000 characters.']
   }
 }, {
   timestamps: true,
