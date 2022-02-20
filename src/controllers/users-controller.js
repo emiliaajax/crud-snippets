@@ -94,13 +94,8 @@ export class UsersController {
       req.session.flash = { type: 'success', text: 'You have registered successfully!' }
       res.redirect('./login')
     } catch (error) {
-      if (Object.keys(error.keyValue)[0] === 'username') {
-        req.session.flash = { type: 'danger', text: 'The username is already taken!' }
-      } else if (Object.keys(error.keyValue)[0] === 'email') {
-        req.session.flash = { type: 'danger', text: 'The email is already in use!' }
-      } else {
-        req.session.flash = { type: 'danger', text: 'error.message' }
-      }
+      console.log(error)
+      req.session.flash = { type: 'danger', text: error.message }
       res.redirect('./register')
     }
   }

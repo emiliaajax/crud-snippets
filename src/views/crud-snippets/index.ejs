@@ -1,16 +1,17 @@
-<h1>CRUD Snippets</h1>
-
-<div>
+<div id="snippets">
+  <h1>SnippetRoom</h1>
+  <h2>Code sharing made simple</h2> 
   <% if (viewData?.crudSnippets?.length) { %>
     <% for (const snippet of viewData.crudSnippets) { %>
-      <article>
-        <h2><%= snippet.user %></h2>
-        <p><%= snippet.snippet %></p>
-      </article>
-      <% if (snippet.creator() === true) { %>
-        <a href="./<%= snippet.id %>/update">Update</a>
-        <a href="./<%= snippet.id %>/delete">Delete</a>
-      <% } %>
+      <div id="snippet">
+        <span id="author"><%=snippet.user%>
+          <% if (snippet.creator() === true) { %>
+            || <a href="./<%= snippet.id %>/update">Update</a>
+            || <a href="./<%= snippet.id %>/delete">Delete</a>
+          <% } %>
+        </span>
+        <pre><%= snippet.snippet %></pre>
+      </div>
     <% } %>
   <% } else { %>
     <p>No snippets to be displayed...</p>

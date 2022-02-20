@@ -1,9 +1,23 @@
 
-main {
-  margin-top: 50px;
+.navbar-brand {
+  padding-left: 20px;
 }
 
-article {
+#snippets {
+  margin-top: 40px;
+}
+
+#snippets h1 {
+  text-align: center;
+}
+
+#snippets h2 {
+  display: block;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#snippet {
   width: 100%;
   color: black;
   background-color: #dcdcdc;
@@ -12,4 +26,65 @@ article {
   margin-bottom: 20px;
   border-left: 5px solid black;
   font-family: 'Inconsolata', monospace;
+}
+
+#loginForm, #registerForm {
+  border-radius: 10px;
+  background-color: rgb(32, 37, 41);
+  color: white;
+  max-width: 300px;
+  height: 400px;
+  padding-top: 50px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+#loginForm button, #registerForm button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 100px;
+  border-radius: 10px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(55, 55, 55);
+  border: none;
+
+}
+
+#loginForm p, #registerForm p {
+  text-align: center;
+}
+
+#createForm, #updateForm {
+  margin: 0 auto;
+  height: 60vh;
+  width: 60%;
+}
+
+#createForm textarea, #updateForm textarea {
+  border-radius: 10px;
+  height: 60vh;
+  width: 100%;
+  resize: none;
+  padding: 20px;
+  font-family: 'Inconsolata', monospace;
+  overflow: scroll;
+}
+
+#createForm textarea:focus, #updateForm textarea:focus {
+  outline: none;
+}
+
+#author {
+  display: block;
+  color: black;
+  font-size: 0.8rem;
+  padding-bottom: 20px;
+}
+
+#author a {
+  color: black;
 }

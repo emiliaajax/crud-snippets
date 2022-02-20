@@ -137,10 +137,7 @@ export class CrudSnippetsController {
         await crudSnippet.save()
         req.session.flash = { type: 'success', text: 'The snippet was updated successfully' }
       } else {
-        req.session.flash = {
-          type: 'danger',
-          text: 'Update failed!'
-        }
+        req.session.flash = { type: 'danger', text: 'Update failed!' }
       }
       res.redirect('..')
     } catch (error) {

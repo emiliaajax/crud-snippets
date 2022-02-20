@@ -1,7 +1,12 @@
-<form method='post' action='./users/login'>
-  <label for='username'>Username</label>
-  <input type='text' id='username' name='username'>
-  <label for='password'>Password</label>
-  <input type='text' id='password' name='password'>
-  <button type='submit'>Login</button>
-</form>
+<div id='loginForm'>
+  <p>Login to CRUD Snippets</p>
+  <form class='px-4 px-1' method='post' action='./users/login'>
+    <div class='form-group'>
+      <input type='text' class='form-control mb-3' id='username' name='username' placeholder='Username'>
+    </div>  
+    <div class='form-group'>
+      <input type='password' class='form-control mb-3' id='password' name='password' placeholder='Password'>
+    </div>
+    <button type='submit' class="btn-btn-primary">Login</button>
+  </form>
+</div>

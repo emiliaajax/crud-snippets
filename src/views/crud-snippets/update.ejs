@@ -1,5 +1,9 @@
-<h1>Update snippet</h1>
-<form method="post" action="./<%= viewData?.id %>/update">
-  <textarea name='snippet'><%= viewData.snippet %></textarea>
-  <button type="submit" class="btn btn-primary">Update</button>
-</form>
+<div id="updateForm">
+  <h1>Update snippet</h1>
+  <form method="post" action="./<%= viewData?.id %>/update">
+    <div class="form-group">
+      <textarea name='snippet'><%= viewData.snippet %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
