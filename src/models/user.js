@@ -7,6 +7,7 @@
 
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
+import validator from 'validator'
 
 const schema = new mongoose.Schema({
   username: {
@@ -26,7 +27,10 @@ const schema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: true
+    required: true,
+    trim: true,
+    // Validate property is inspired by https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax. Retrieved (2022-02-21).
+    validate: [validator.isEmail, 'Invalid e-mail!']
   }
 }, {
   timestamps: true
