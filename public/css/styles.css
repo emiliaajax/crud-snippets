@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+
+.navbar {
+  background-color: black !important;
+}
 
 .navbar-brand {
   padding-left: 20px;
@@ -23,9 +29,32 @@
   background-color: #dcdcdc;
   font-size: 1rem;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   border-left: 5px solid black;
   font-family: 'Inconsolata', monospace;
+}
+
+#title {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#description p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+#code pre {
+  width: 100%;
+  background-color: #fafafa;
+  color: black;
+  padding: 10px;
+  padding-top: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
+  font-family: 'Inconsolata', monospace !important;
 }
 
 #loginForm, #registerForm {
@@ -36,7 +65,7 @@
   height: 400px;
   padding-top: 50px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 #loginForm button, #registerForm button {
@@ -62,20 +91,65 @@
   margin: 0 auto;
   height: 60vh;
   width: 60%;
+  margin-top: 40px;
 }
 
-#createForm textarea, #updateForm textarea {
+#createForm #createSnippet, #updateForm #updateSnippet {
   border-radius: 10px;
-  height: 60vh;
+  height: 45vh;
   width: 100%;
   resize: none;
   padding: 20px;
   font-family: 'Inconsolata', monospace;
   overflow: scroll;
+  float: right;
 }
 
 #createForm textarea:focus, #updateForm textarea:focus {
   outline: none;
+}
+
+#createForm #createTitle, #updateForm #updateTitle {
+  border-radius: 10px;
+  display: block;
+  width: 49%;
+  float: left;
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-family: 'Inconsolata', monospace;
+  outline: none;
+  border-width: thin;
+}
+
+#createForm #createLanguage, #updateForm #updateLanguage {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: block;
+  width: 49%;
+  float: right;
+  padding: 5px;
+  padding-left: 20px;
+  font-family: 'Inconsolata', monospace;
+  outline: none;
+  border-width: thin;
+}
+
+#createForm #createDescription, #updateForm #updateDescription {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: block;
+  height: 15vh;
+  width: 100%;
+  resize: none;
+  padding: 20px;
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#createForm button, #updateForm button {
+  float: right;
+  margin-top: 10px;
 }
 
 #author {

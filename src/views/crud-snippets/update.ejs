@@ -1,8 +1,10 @@
 <div id="updateForm">
-  <h1>Update snippet</h1>
   <form method="post" action="./<%= viewData?.id %>/update">
     <div class="form-group">
-      <textarea name='snippet' maxlength='8000'><%= viewData.snippet %></textarea>
+      <input id="updateTitle" name="title" type="text" maxlength="100" placeholder="Title..." value="<%= viewData.title %>">
+      <input id="updateLanguage" name="language" type="text" maxlength="50" placeholder="Language..." value="<%= viewData.language %>">
+      <textarea id="updateDescription" name="description" max-length="8000" placeholder="Describe code..."><%= viewData.description %></textarea>
+      <textarea id="updateSnippet" name='snippet' maxlength='8000'><%= viewData.snippet %></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
   </form>

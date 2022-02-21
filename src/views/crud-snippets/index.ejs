@@ -4,13 +4,21 @@
   <% if (viewData?.crudSnippets?.length) { %>
     <% for (const snippet of viewData.crudSnippets) { %>
       <div id="snippet">
-        <span id="author"><%=snippet.user%>
+        <div id="title">
+          <h3><%= snippet.title %></h3>
+        </div>
+        <span id="author"><%=snippet.language%> || <%=snippet.updatedAt%> || By <%=snippet.user%>
           <% if (snippet.creator() === true) { %>
             || <a href="./<%= snippet.id %>/update">Update</a>
             || <a href="./<%= snippet.id %>/delete">Delete</a>
           <% } %>
         </span>
-        <pre><%= snippet.snippet %></pre>
+        <div id="description">
+          <p><%= snippet.description %></p>
+        </div>
+        <div id="code">
+          <pre><%= snippet.snippet %></pre>
+        </div>
       </div>
     <% } %>
   <% } else { %>

@@ -12,6 +12,21 @@ const schema = new mongoose.Schema({
     type: String,
     required: true
   },
+  title: {
+    type: String,
+    required: true,
+    maxlength: [100, 'The title can\'t exceed 100 characters.']
+  },
+  language: {
+    type: String,
+    required: true,
+    maxlength: [50, 'The language name can\'t exceed 50 characters.']
+  },
+  description: {
+    type: String,
+    required: true,
+    maxlength: [8000, 'The description can\'t exceed 8000 characters']
+  },
   snippet: {
     type: String,
     required: true,

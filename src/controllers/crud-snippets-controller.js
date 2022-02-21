@@ -47,7 +47,11 @@ export class CrudSnippetsController {
           .map(crudSnippet => ({
             id: crudSnippet._id,
             createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
+            updatedAt: formatDistanceToNow(crudSnippet.updatedAt, { addSuffix: true }),
             user: crudSnippet.user,
+            title: crudSnippet.title,
+            language: crudSnippet.language,
+            description: crudSnippet.description,
             snippet: crudSnippet.snippet,
             /**
              * Returns true if the user is the creator, false otherwise.
@@ -96,6 +100,9 @@ export class CrudSnippetsController {
     try {
       const crudSnippet = new CrudSnippet({
         user: req.session.user.username,
+        title: req.body.title,
+        language: req.body.language,
+        description: req.body.description,
         snippet: req.body.snippet
       })
       await crudSnippet.save()
@@ -133,6 +140,9 @@ export class CrudSnippetsController {
     try {
       const crudSnippet = await CrudSnippet.findById(req.params.id)
       if (crudSnippet) {
+        crudSnippet.title = req.body.title
+        crudSnippet.language = req.body.language
+        crudSnippet.description = req.body.description
         crudSnippet.snippet = req.body.snippet
         await crudSnippet.save()
         req.session.flash = { type: 'success', text: 'The snippet was updated successfully' }
