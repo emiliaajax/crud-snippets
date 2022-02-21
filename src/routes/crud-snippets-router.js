@@ -13,11 +13,11 @@ const controller = new CrudSnippetsController()
 
 router.get('/', controller.index)
 
-router.get('/create', controller.authorize, controller.createForm)
-router.post('/create', controller.authorize, controller.create)
+router.get('/create', controller.authorize, controller.create)
+router.post('/create', controller.authorize, controller.createPost)
 
 router.get('/:id/update', controller.authorize, controller.update)
-router.post('/:id/update', controller.authorize, controller.updateSnippet)
+router.post('/:id/update', controller.authorize, controller.updatePost)
 
 router.get('/:id/delete', controller.authorize, controller.delete)
-router.post('/:id/delete', controller.authorize, controller.deleteSnippet)
+router.post('/:id/delete', controller.authorize, controller.deletePost)

@@ -82,7 +82,7 @@ export class CrudSnippetsController {
    * @param {*} req Test.
    * @param {*} res Test.
    */
-  async createForm (req, res) {
+  async create (req, res) {
     res.render('crud-snippets/create')
   }
 
@@ -92,7 +92,7 @@ export class CrudSnippetsController {
    * @param {*} req Test.
    * @param {*} res Test.
    */
-  async create (req, res) {
+  async createPost (req, res) {
     try {
       const crudSnippet = new CrudSnippet({
         user: req.session.user.username,
@@ -129,7 +129,7 @@ export class CrudSnippetsController {
    * @param {*} req Test.
    * @param {*} res Test.
    */
-  async updateSnippet (req, res) {
+  async updatePost (req, res) {
     try {
       const crudSnippet = await CrudSnippet.findById(req.params.id)
       if (crudSnippet) {
@@ -168,7 +168,7 @@ export class CrudSnippetsController {
    * @param {*} req Test.
    * @param {*} res Test.
    */
-  async deleteSnippet (req, res) {
+  async deletePost (req, res) {
     try {
       await CrudSnippet.findByIdAndDelete(req.params.id)
       req.session.flash = { type: 'success', text: 'The snippet has been deleted!' }
