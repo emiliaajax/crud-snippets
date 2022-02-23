@@ -1,23 +1,23 @@
 <div id="snippets">
-  <h1>SnippetRoom</h1>
-  <h2>Code sharing made simple</h2> 
+  <!-- <h1>SnippetRoom</h1>
+  <h2>Code sharing made simple</h2>  -->
   <% if (viewData?.crudSnippets?.length) { %>
     <% for (const snippet of viewData.crudSnippets) { %>
       <div id="snippet">
         <div id="title">
           <h3><%= snippet.title %></h3>
         </div>
-        <span id="author"><%=snippet.language%> || <%=snippet.updatedAt%> || By <%=snippet.user%>
+        <span id="author"><%=snippet.language%> | <%=snippet.updatedAt%> | By <%=snippet.user%>
           <% if (snippet.creator() === true) { %>
-            || <a href="./<%= snippet.id %>/update">Update</a>
-            || <a href="./<%= snippet.id %>/delete">Delete</a>
+            | <a href="./<%= snippet.id %>/update">Update</a>
+            | <a href="./<%= snippet.id %>/delete">Delete</a>
           <% } %>
         </span>
         <div id="description">
           <p><%= snippet.description %></p>
         </div>
         <div id="code">
-          <pre><%= snippet.snippet %></pre>
+          <pre><code><%= snippet.snippet %></code></pre>
         </div>
       </div>
     <% } %>

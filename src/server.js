@@ -30,6 +30,17 @@ try {
 
   // Sets HTTP headers to make application more secure.
   app.use(helmet())
+  app.use(helmet({ crossOriginEmbedderPolicy: true }))
+  app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'script-src': ["'self'", "'unsafe-inline'", 'cdn.jsdelivr.net'],
+        'style-src-elem': ["'self'", "'unsafe-inline'", 'fonts.googleapis.com', 'cdn.jsdelivr.net'],
+        'font-src': ["'self'", 'fonts.gstatic.com']
+      }
+    })
+  )
 
   // Sets up a morgan logger using the dev format for log entries.
   app.use(logger('dev'))
@@ -81,7 +92,7 @@ try {
 
     // Passes the user to the views if user is logged in.
     if (req.session.user) {
-      res.locals.user = req.session.user
+      res.locals.user = req.session.user.username
     }
     next()
   })
