@@ -51,6 +51,18 @@
   color: black;
   padding-top: 5px;
   padding-bottom: 10px;
+  padding-top: 20px;
+}
+
+#tags a {
+  font-size: 0.8rem;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
 #code pre code {
@@ -151,7 +163,8 @@
   resize: none;
   padding: 20px;
   font-family: 'Inconsolata', monospace;
-  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  border-width: thin;
 }
 
 #createForm button, #updateForm button {
@@ -163,7 +176,7 @@
   display: block;
   color: black;
   font-size: 0.8rem;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 #author a {

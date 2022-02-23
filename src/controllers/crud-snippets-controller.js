@@ -52,6 +52,48 @@ export class CrudSnippetsController {
             title: crudSnippet.title,
             language: crudSnippet.language,
             description: crudSnippet.description,
+            tags: crudSnippet.tags,
+            snippet: crudSnippet.snippet,
+            /**
+             * Returns true if the user is the creator, false otherwise.
+             *
+             * @returns {boolean} True if the user is the creator, false otherwise.
+             */
+            creator: function () {
+              if (req.session.user) {
+                return req.session.user.username === crudSnippet.user
+              } else {
+                return false
+              }
+            }
+          }))
+      }
+      res.render('crud-snippets/index', { viewData })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  /**
+   * Test.
+   *
+   * @param {*} req Test.
+   * @param {*} res Test.
+   * @param {*} next Test.
+   */
+  async viewTag (req, res, next) {
+    try {
+      const viewData = {
+        crudSnippets: (await CrudSnippet.find({ tags: req.params.tag }))
+          .map(crudSnippet => ({
+            id: crudSnippet._id,
+            createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
+            updatedAt: formatDistanceToNow(crudSnippet.updatedAt, { addSuffix: true }),
+            user: crudSnippet.user,
+            title: crudSnippet.title,
+            language: crudSnippet.language,
+            description: crudSnippet.description,
+            tags: crudSnippet.tags,
             snippet: crudSnippet.snippet,
             /**
              * Returns true if the user is the creator, false otherwise.
@@ -103,6 +145,7 @@ export class CrudSnippetsController {
         title: req.body.title,
         language: req.body.language,
         description: req.body.description,
+        tags: req.body.tags.split(' ').map(element => element.toLowerCase().trim()),
         snippet: req.body.snippet
       })
       await crudSnippet.save()
@@ -144,6 +187,7 @@ export class CrudSnippetsController {
         crudSnippet.language = req.body.language
         crudSnippet.description = req.body.description
         crudSnippet.snippet = req.body.snippet
+        crudSnippet.tags = req.body.tags.split(' ').map(element => element.toLowerCase().trim())
         await crudSnippet.save()
         req.session.flash = { type: 'success', text: 'The snippet was updated successfully' }
       } else {

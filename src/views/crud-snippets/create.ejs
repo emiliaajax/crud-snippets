@@ -1,10 +1,11 @@
 <div id="createForm">
   <form method="post" action="./create">
     <div class="form-group">
-      <input id="createTitle" name="title" type="text" maxlength="100" placeholder="Title...">
-      <input id="createLanguage" name="language" type="text" maxlength="50" placeholder="Language...">
-      <textarea id="createDescription" name="description" maxlength="8000" placeholder="Describe code..."></textarea>
-      <textarea id="createSnippet" name='snippet' maxlength='8000' placeholder='Write code...'></textarea>
+      <input id="createTitle" name="title" type="text" maxlength="100" placeholder="Title..." required>
+      <input id="createLanguage" name="language" type="text" maxlength="50" placeholder="Language..." required>
+      <textarea id="createDescription" name="description" maxlength="8000" placeholder="Describe code..." required></textarea>
+      <input id="createTags" name="tags" type="text" data-role="tagsinput " placeholder="Add tags... (Optional)">
+      <textarea id="createSnippet" name='snippet' maxlength='8000' placeholder='Write code...' required></textarea>
     </div>
     <button type="submit" class="btn btn-lg btn-primary">Create</button>
   </form>

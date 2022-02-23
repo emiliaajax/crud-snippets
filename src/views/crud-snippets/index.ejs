@@ -13,6 +13,13 @@
             | <a href="./<%= snippet.id %>/delete">Delete</a>
           <% } %>
         </span>
+        <div id="tags">
+          <% if (snippet.tags?.length) { %>
+            <% for (const tag of snippet.tags) { %>
+              <a href="./<%= tag %>"><%=tag%></a>
+              <% } %>
+           <% } %>
+        </div>
         <div id="description">
           <p><%= snippet.description %></p>
         </div>

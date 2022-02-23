@@ -27,6 +27,7 @@ const schema = new mongoose.Schema({
     required: true,
     maxlength: [8000, 'The description can\'t exceed 8000 characters']
   },
+  tags: [String],
   snippet: {
     type: String,
     required: true,
