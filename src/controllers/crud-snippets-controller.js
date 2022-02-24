@@ -129,7 +129,6 @@ export class CrudSnippetsController {
           .map(crudSnippet => ({
             id: crudSnippet._id,
             createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
-            updatedAt: formatDistanceToNow(crudSnippet.updatedAt, { addSuffix: true }),
             user: crudSnippet.user,
             title: crudSnippet.title,
             language: crudSnippet.language,
@@ -186,11 +185,11 @@ export class CrudSnippetsController {
         title: req.body.title,
         language: req.body.language,
         description: req.body.description,
-        tags: req.body.tags.split(' ').map(element => element.toLowerCase().trim()),
+        tags: req.body.tags.split(',').map(element => element.toLowerCase().trim()),
         snippet: req.body.snippet
       })
       await crudSnippet.save()
-      req.session.flash = { type: 'success', text: 'The snippet was created successfully' }
+      req.session.flash = { type: 'success', text: 'The snippet has been created!' }
       res.redirect('.')
     } catch (error) {
       req.session.flash = { type: 'danger', text: error.message }
@@ -228,9 +227,9 @@ export class CrudSnippetsController {
         crudSnippet.language = req.body.language
         crudSnippet.description = req.body.description
         crudSnippet.snippet = req.body.snippet
-        crudSnippet.tags = req.body.tags.split(' ').map(element => element.toLowerCase().trim())
+        crudSnippet.tags = req.body.tags.split(',').map(element => element.toLowerCase().trim())
         await crudSnippet.save()
-        req.session.flash = { type: 'success', text: 'The snippet was updated successfully' }
+        req.session.flash = { type: 'success', text: 'The snippet has been updated!' }
       } else {
         req.session.flash = { type: 'danger', text: 'Update failed!' }
       }
@@ -250,7 +249,30 @@ export class CrudSnippetsController {
   async delete (req, res) {
     try {
       const crudSnippet = await CrudSnippet.findById(req.params.id)
-      res.render('crud-snippets/delete', { viewData: crudSnippet.toObject() })
+      const viewData = {
+        id: crudSnippet._id,
+        createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
+        updatedAt: formatDistanceToNow(crudSnippet.updatedAt, { addSuffix: true }),
+        user: crudSnippet.user,
+        title: crudSnippet.title,
+        language: crudSnippet.language,
+        description: crudSnippet.description,
+        tags: crudSnippet.tags,
+        snippet: crudSnippet.snippet,
+        /**
+         * Returns true if the user is the creator, false otherwise.
+         *
+         * @returns {boolean} True if the user is the creator, false otherwise.
+         */
+        creator: function () {
+          if (req.session.user) {
+            return req.session.user.username === crudSnippet.user
+          } else {
+            return false
+          }
+        }
+      }
+      res.render('crud-snippets/delete', { viewData })
     } catch (error) {
       req.session.flash = { type: 'danger', text: error.message }
       res.redirect('..')

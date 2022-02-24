@@ -1,5 +1,33 @@
-<h1>Are you sure you want to delete?</h1>
+<div id="deleteHeading">
+  <h1>Are you sure you want to delete the snippet?</h1>
+</div>
 <form method="post" action="./<%= viewData?.id %>/delete">
-  <p><%= viewData.snippet %></p>
-  <button type="submit" class="btn btn-primary">Delete</button>
+  <div class="snippet">
+    <div class="title">
+      <h3>
+        <%= viewData.title %>
+      </h3>
+    </div>
+    <span class="author">
+      <%=viewData.language%> | <%=viewData.updatedAt%> | By <%=viewData.user%>
+    </span>
+    <div class="tags">
+      <% if (viewData.tags?.length) { %>
+        <% for (const tag of viewData.tags) { %>
+          <a href="./<%= tag %>">
+            <%=tag%>
+          </a>
+          <% } %>
+            <% } %>
+    </div>
+    <div class="description">
+      <p>
+        <%= viewData.description %>
+      </p>
+    </div>
+    <div class="code">
+      <pre><code><%= viewData.snippet %></code></pre>
+    </div>
+  </div>
+  <button id="deleteButton" type="submit" class="btn btn-primary">Delete</button>
 </form>

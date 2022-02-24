@@ -30,7 +30,7 @@
   margin-bottom: 50px;
 }
 
-#snippet {
+.snippet {
   width: 100%;
   color: black;
   background-color: #dcdcdc;
@@ -41,11 +41,11 @@
   font-family: 'Inconsolata', monospace;
 }
 
-#title {
+.title {
   font-family: 'Montserrat', sans-serif;
 }
 
-#description p {
+.description p {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   color: black;
@@ -54,7 +54,7 @@
   padding-top: 20px;
 }
 
-#tags a {
+.tags a {
   font-size: 0.8rem;
   padding: 5px;
   margin-right: 5px;
@@ -65,7 +65,7 @@
   text-transform: capitalize;
 }
 
-#code pre code {
+.code pre code {
   width: 100%;
   background-color: #fafafa;
   color: black;
@@ -167,18 +167,42 @@
   border-width: thin;
 }
 
+#createForm #createTags, #updateForm #updateTags {
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-family: 'Inconsolata', monospace;
+  outline: none;
+  border-width: thin;
+}
+
 #createForm button, #updateForm button {
   float: right;
   margin-top: 10px;
 }
 
-#author {
+#deleteHeading {
+  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+  padding-left: 0;
+}
+
+#deleteButton {
+  float: right;
+}
+
+.author {
   display: block;
   color: black;
   font-size: 0.8rem;
   padding-bottom: 10px;
 }
 
-#author a {
+.author a {
   color: black;
 }
