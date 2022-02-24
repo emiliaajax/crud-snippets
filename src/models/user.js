@@ -16,7 +16,8 @@ const schema = new mongoose.Schema({
     unique: true,
     trim: true,
     minlength: [3, 'The username must be at least 3 characters.'],
-    maxlength: [1000, 'The username must be less than 1000 characters.']
+    maxlength: [1000, 'The username must be less than 1000 characters.'],
+    validate: [validator.isAlphanumeric, 'Username must only contain letters (A-Z) and numbers (0-9).']
   },
   password: {
     type: String,
