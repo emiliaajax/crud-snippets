@@ -10,16 +10,16 @@ import { formatDistanceToNow } from 'date-fns'
 import { CrudSnippet } from '../models/crud-snippet.js'
 
 /**
- *
+ * Encapsulates a controller.
  */
 export class CrudSnippetsController {
   /**
-   * Test.
+   * Authorizes the user.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
-   * @param {*} next Test.
-   * @returns {*} Next middleware.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
+   * @param {Function} next Express next middleware function.
+   * @returns {Function} Express next middleware function.
    */
   async authorize (req, res, next) {
     if (!req.session.user) {
@@ -34,11 +34,11 @@ export class CrudSnippetsController {
   }
 
   /**
-   * Test.
+   * Displays all snippets.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
-   * @param {*} next Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
+   * @param {Function} next Express next middleware function.
    */
   async index (req, res, next) {
     try {
@@ -75,11 +75,11 @@ export class CrudSnippetsController {
   }
 
   /**
-   * Test.
+   * Displays all snippets with a certain tag.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
-   * @param {*} next Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
+   * @param {Function} next Express next middleware function.
    */
   async viewTag (req, res, next) {
     try {
@@ -116,11 +116,11 @@ export class CrudSnippetsController {
   }
 
   /**
-   * Test.
+   * Displays all snippets created by logged in user.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
-   * @param {*} next Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
+   * @param {Function} next Express next middleware function.
    */
   async mySnippets (req, res, next) {
     try {
@@ -164,20 +164,20 @@ export class CrudSnippetsController {
   // }
 
   /**
-   * Test.
+   * Returns a HTML form for creating a snippet.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
    */
   async create (req, res) {
     res.render('crud-snippets/create')
   }
 
   /**
-   * Test.
+   * Creates a new snippet.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
    */
   async createPost (req, res) {
     try {
@@ -199,10 +199,10 @@ export class CrudSnippetsController {
   }
 
   /**
-   * Test.
+   * Returns a HTML form for updated a snippet.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
    */
   async update (req, res) {
     try {
@@ -215,10 +215,10 @@ export class CrudSnippetsController {
   }
 
   /**
-   * Test.
+   * Updates a snippet.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
    */
   async updatePost (req, res) {
     try {
@@ -242,10 +242,10 @@ export class CrudSnippetsController {
   }
 
   /**
-   * Test.
+   * Returns a HTML page for deleting a snippet.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
    */
   async delete (req, res) {
     try {
@@ -258,10 +258,10 @@ export class CrudSnippetsController {
   }
 
   /**
-   * Test.
+   * Deletes a snippet.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
    */
   async deletePost (req, res) {
     try {

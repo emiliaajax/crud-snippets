@@ -38,10 +38,10 @@ const schema = new mongoose.Schema({
   toObject: {
     virtuals: true,
     /**
-     * Test.
+     * Removes sensitive information by transforming the resulting object.
      *
-     * @param {*} doc Test.
-     * @param {*} ret Test.
+     * @param {object} doc The mongoose document to be converted.
+     * @param {object} ret The plain object response which has been converted.
      */
     transform: function (doc, ret) {
       delete ret._id
@@ -50,8 +50,10 @@ const schema = new mongoose.Schema({
   }
 })
 
+// Creates a virtual property.
 schema.virtual('id').get(function () {
   return this._id.toHexString()
 })
 
+// Creates a model using the schema.
 export const CrudSnippet = mongoose.model('CrudSnippet', schema)

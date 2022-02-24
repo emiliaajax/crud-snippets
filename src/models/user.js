@@ -36,6 +36,7 @@ const schema = new mongoose.Schema({
   timestamps: true
 })
 
+// Before saving the password is salted and hashed.
 schema.pre('save', async function () {
   this.password = await bcrypt.hash(this.password, 8)
 })
@@ -54,11 +55,11 @@ schema.post('save', function (error, doc, next) {
 })
 
 /**
- * Test.
+ * Authenticates a user.
  *
- * @param {*} username Test.
- * @param {*} password Test.
- * @returns {*} Test.
+ * @param {string} username The username.
+ * @param {string} password The password.
+ * @returns {Promise} Resolves to a user object.
  */
 schema.statics.authenticate = async function (username, password) {
   const user = await this.findOne({ username })
@@ -68,4 +69,5 @@ schema.statics.authenticate = async function (username, password) {
   return user
 }
 
+// Creates a model using the schema.
 export const User = mongoose.model('User', schema)

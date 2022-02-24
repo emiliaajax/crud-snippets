@@ -9,25 +9,25 @@ import { User } from '../models/user.js'
 import createError from 'http-errors'
 
 /**
- *
+ * Encapsulate a controller.
  */
 export class UsersController {
   /**
-   * Test.
+   * Returns a HTML login form.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express resonse object.
    */
   async login (req, res) {
     res.render('users/login')
   }
 
   /**
-   * Test.
+   * Logs in a user.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
-   * @param {*} next Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
+   * @param {Function} next Express next middleware function.
    */
   async loginPost (req, res, next) {
     try {
@@ -46,12 +46,12 @@ export class UsersController {
   }
 
   /**
-   * Test.
+   * Logs out current user.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
-   * @param {*} next Test.
-   * @returns {*} test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
+   * @param {Function} next Express next middleware function.
+   * @returns {Function} Express next middleware function.
    */
   async logout (req, res, next) {
     if (!req.session.user) {
@@ -67,21 +67,21 @@ export class UsersController {
   }
 
   /**
-   * Test.
+   * Returns a HTML form for registering a user.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
    */
   async register (req, res) {
     res.render('users/register')
   }
 
   /**
-   * Test.
+   * Registers a new user.
    *
-   * @param {*} req Test.
-   * @param {*} res Test.
-   * @param {*} next Test.
+   * @param {object} req Express request object.
+   * @param {object} res Express resonse object.
+   * @param {Function} next Express next middleware function.
    */
   async registerPost (req, res, next) {
     try {

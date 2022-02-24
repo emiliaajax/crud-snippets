@@ -79,7 +79,7 @@ try {
 
   app.use(session(sessionOptions))
 
-  // Middleware to be executre before the routes.
+  // Middleware to be executed before the routes.
   app.use((req, res, next) => {
     // Passes the base URL to the views.
     res.locals.baseURL = baseURL
