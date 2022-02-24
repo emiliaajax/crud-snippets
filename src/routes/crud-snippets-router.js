@@ -16,6 +16,8 @@ router.get('/', controller.index)
 router.get('/create', controller.authorize, controller.create)
 router.post('/create', controller.authorize, controller.createPost)
 
+router.get('/my-snippets', controller.authorize, controller.mySnippets)
+
 router.get('/:tag', controller.viewTag)
 
 router.get('/:id/update', controller.authorize, controller.update)

@@ -115,6 +115,47 @@ export class CrudSnippetsController {
     }
   }
 
+  /**
+   * Test.
+   *
+   * @param {*} req Test.
+   * @param {*} res Test.
+   * @param {*} next Test.
+   */
+  async mySnippets (req, res, next) {
+    try {
+      const viewData = {
+        crudSnippets: (await CrudSnippet.find({ user: req.session.user.username }))
+          .map(crudSnippet => ({
+            id: crudSnippet._id,
+            createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
+            updatedAt: formatDistanceToNow(crudSnippet.updatedAt, { addSuffix: true }),
+            user: crudSnippet.user,
+            title: crudSnippet.title,
+            language: crudSnippet.language,
+            description: crudSnippet.description,
+            tags: crudSnippet.tags,
+            snippet: crudSnippet.snippet,
+            /**
+             * Returns true if the user is the creator, false otherwise.
+             *
+             * @returns {boolean} True if the user is the creator, false otherwise.
+             */
+            creator: function () {
+              if (req.session.user) {
+                return req.session.user.username === crudSnippet.user
+              } else {
+                return false
+              }
+            }
+          }))
+      }
+      res.render('crud-snippets/index', { viewData })
+    } catch (error) {
+      next(error)
+    }
+  }
+
   // isCreator (req, snippet) {
   //   if (req.session.user) {
   //     return req.session.user.username === snippet
