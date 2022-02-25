@@ -92,7 +92,7 @@ try {
 
     // Passes the user to the views if user is logged in.
     if (req.session.user) {
-      res.locals.user = req.session.user.username
+      res.locals.username = req.session.user.username
     }
     next()
   })
