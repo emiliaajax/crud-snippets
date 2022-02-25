@@ -8,12 +8,49 @@
   src: url('https://fonts.google.com/?query=inconsolata');
 }
 
+body {
+  background-color: rgb(10,7,27) !important;
+}
+
 .navbar {
-  background-color: black !important;
+  background-color: rgb(12,9,16) !important;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
 }
 
 .navbar-brand {
   padding-left: 20px;
+}
+
+.frontPageLinks {
+  margin-top: 60px;
+  margin-left: 7%;
+}
+
+.frontPageLinks a {
+  border-radius: 50%;
+  margin-right: 70px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 150px;
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(122, 189, 255);
+  background-color: black;
+  background-color: rgb(229, 229, 231);
+  background-color: rgb(81, 140, 255);
+  background-color: #4a7ce3;
+  color: black;
+  /* color: rgb(229, 229, 231); */
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inconsolata', monospace;
 }
 
 #snippets {
@@ -31,13 +68,18 @@
 }
 
 .snippet {
-  width: 100%;
+  margin: 0 auto;
+  width: 80%;
   color: black;
+  color: white;
+  color: rgb(229, 229, 231);
   background-color: #dcdcdc;
+  background-color: rgb(23, 20, 39);
   font-size: 1rem;
   padding: 20px;
   margin-bottom: 40px;
-  border-left: 5px solid black;
+  /* border-left: 5px solid #F9F7F5; */
+  border-radius: 5px;
   font-family: 'Inconsolata', monospace;
 }
 
@@ -49,6 +91,8 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   color: black;
+  color: white;
+  color: rgb(229, 229, 231);
   padding-top: 5px;
   padding-bottom: 10px;
   padding-top: 20px;
@@ -56,10 +100,12 @@
 
 .tags a {
   font-size: 0.8rem;
-  padding: 5px;
+  padding: 7px;
   margin-right: 5px;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: grey;
+  background-color: rgb(122, 189, 255);
+  background-color: black;
   color: white;
   text-decoration: none;
   text-transform: capitalize;
@@ -68,7 +114,9 @@
 .code pre code {
   width: 100%;
   background-color: #fafafa;
-  color: black;
+  background-color: rgb(32, 37, 61);
+  /* color: black;
+  color: white; */
   padding: 10px;
   padding-top: 20px;
   padding-left: 20px;
@@ -79,12 +127,18 @@
 #loginForm, #registerForm {
   border-radius: 10px;
   background-color: rgb(32, 37, 41);
+  background-color: #4a7ce3;
+  background-color: rgb(32, 37, 61);
   color: white;
   max-width: 300px;
   height: 400px;
-  padding-top: 50px;
+  padding-top: 60px;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 120px;
+}
+
+#loginForm a {
+  color: #4a7ce3;
 }
 
 #loginForm button, #registerForm button {
@@ -97,9 +151,8 @@
   font-size: 1.2rem;
   cursor: pointer;
   color: white;
-  background-color: rgb(55, 55, 55);
+  background-color: rgb(12,9,16) ;
   border: none;
-
 }
 
 #loginForm p, #registerForm p {
@@ -115,13 +168,14 @@
 
 #createForm #createSnippet, #updateForm #updateSnippet {
   border-radius: 10px;
-  height: 45vh;
+  height: 40vh;
   width: 100%;
   resize: none;
   padding: 20px;
   font-family: 'Inconsolata', monospace;
   overflow: scroll;
   float: right;
+  background-color: rgb(229, 229, 231);
 }
 
 #createForm textarea:focus, #updateForm textarea:focus {
@@ -139,6 +193,7 @@
   font-family: 'Inconsolata', monospace;
   outline: none;
   border-width: thin;
+  background-color: rgb(229, 229, 231);
 }
 
 #createForm #createLanguage, #updateForm #updateLanguage {
@@ -152,6 +207,7 @@
   font-family: 'Inconsolata', monospace;
   outline: none;
   border-width: thin;
+  background-color: rgb(229, 229, 231);
 }
 
 #createForm #createDescription, #updateForm #updateDescription {
@@ -165,6 +221,7 @@
   font-family: 'Inconsolata', monospace;
   outline: none;
   border-width: thin;
+  background-color: rgb(229, 229, 231);
 }
 
 #createForm #createTags, #updateForm #updateTags {
@@ -178,31 +235,54 @@
   font-family: 'Inconsolata', monospace;
   outline: none;
   border-width: thin;
+  background-color: rgb(229, 229, 231);
 }
 
 #createForm button, #updateForm button {
   float: right;
   margin-top: 10px;
+  background-color: #4a7ce3;
 }
 
 #deleteHeading {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-family: 'Montserrat', sans-serif;
   padding: 20px;
   padding-left: 0;
+  color: rgb(229, 229, 231);
+  margin-left: 10%;
 }
 
 #deleteButton {
   float: right;
+  color: rgb(229, 229, 231);
+  margin-right: 10%;
+  background-color: #4a7ce3;
 }
 
 .author {
   display: block;
   color: black;
+  color: white;
+  color: rgb(229, 229, 231);
   font-size: 0.8rem;
   padding-bottom: 10px;
+  color: rgb(165, 164, 171)
 }
 
 .author a {
   color: black;
+  color: white;
+  color: rgb(229, 229, 231);
+  color: rgb(165, 164, 171)
+}
+
+.alert-success {
+  color: #2F5233;
+}
+
+.alert-danger {
+  background-color: #b30000 !important;
+  color: #3f0000 !important;
+  border-color: #b30000 !important;
 }

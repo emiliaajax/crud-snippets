@@ -1,19 +1,22 @@
 <header>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="./">SnippetRoom</a>
+  <nav class="navbar navbar-expand-sm navbar-dark">
+    <a class="navbar-brand" href="./">SnippetRoom&trade;</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="./snippets">Snippets</a>
+        </li>
         <% if (typeof user !=='undefined' ) { %>
             <li class="nav-item">
-              <a class="nav-link" href="./create">Create</a>
+              <a class="nav-link" href="./snippets/create">Create</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%=user%></a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="./my-snippets">My snippets</a>
+                <a class="dropdown-item" href="./snippets/my-snippets">My snippets</a>
                 <a class="dropdown-item" href="./users/logout">Log out</a>
               </div>
             </li>
@@ -21,9 +24,9 @@
             <li class="nav-item">
               <a class="nav-link" href="./users/login">Login</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="./users/register">Register</a>
-            </li>
+            </li> -->
           <% } %>
       </ul>
     </div>

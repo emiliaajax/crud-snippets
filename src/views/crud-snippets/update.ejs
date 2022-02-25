@@ -1,5 +1,5 @@
 <div id="updateForm">
-  <form method="post" action="./<%= viewData?.id %>/update">
+  <form method="post" action="./snippets/<%= viewData?.id %>/update">
     <div class="form-group">
       <input id="updateTitle" name="title" type="text" maxlength="100" placeholder="Title..." value="<%= viewData.title %>">
       <input id="updateLanguage" name="language" type="text" maxlength="50" placeholder="Language..." value="<%= viewData.language %>">

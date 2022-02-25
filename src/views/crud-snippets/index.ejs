@@ -7,14 +7,14 @@
         </div>
         <span class="author"><%=snippet.language%> | <%=snippet.createdAt%> | By <%=snippet.user%>
           <% if (snippet.creator() === true) { %>
-            | <a href="./<%= snippet.id %>/update">Update</a>
-            | <a href="./<%= snippet.id %>/delete">Delete</a>
+            | <a href="./snippets/<%= snippet.id %>/update">Update</a>
+            | <a href="./snippets/<%= snippet.id %>/delete">Delete</a>
           <% } %>
         </span>
         <div class="tags">
           <% if (snippet.tags?.length !== 0) { %>
             <% for (const tag of snippet.tags) { %>
-              <a href="./<%= tag %>"><%=tag%></a>
+              <a href="./snippets/<%= tag %>"><%=tag%></a>
               <% } %>
            <% } %>
         </div>
