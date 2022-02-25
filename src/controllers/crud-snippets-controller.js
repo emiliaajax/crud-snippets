@@ -66,7 +66,7 @@ export class CrudSnippetsController {
                 return false
               }
             }
-          }))
+          })).reverse()
       }
       res.render('crud-snippets/index', { viewData })
     } catch (error) {
@@ -107,7 +107,7 @@ export class CrudSnippetsController {
                 return false
               }
             }
-          }))
+          })).reverse()
       }
       res.render('crud-snippets/index', { viewData })
     } catch (error) {
@@ -147,7 +147,7 @@ export class CrudSnippetsController {
                 return false
               }
             }
-          }))
+          })).reverse()
       }
       res.render('crud-snippets/index', { viewData })
     } catch (error) {
