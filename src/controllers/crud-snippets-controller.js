@@ -26,7 +26,7 @@ export class CrudSnippetsController {
       return next(createError(404))
     } else if (req.params.id) {
       const crudSnippet = await CrudSnippet.findById(req.params.id)
-      if (req.session.user.username !== crudSnippet.user) {
+      if (req.session.user.username !== crudSnippet.username) {
         return next(createError(403))
       }
     }
@@ -48,7 +48,7 @@ export class CrudSnippetsController {
             id: crudSnippet._id,
             createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
             updatedAt: formatDistanceToNow(crudSnippet.updatedAt, { addSuffix: true }),
-            user: crudSnippet.user,
+            username: crudSnippet.username,
             title: crudSnippet.title,
             language: crudSnippet.language,
             description: crudSnippet.description,
@@ -61,7 +61,7 @@ export class CrudSnippetsController {
              */
             creator: function () {
               if (req.session.user) {
-                return req.session.user.username === crudSnippet.user
+                return req.session.user.username === crudSnippet.username
               } else {
                 return false
               }
@@ -89,7 +89,7 @@ export class CrudSnippetsController {
             id: crudSnippet._id,
             createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
             updatedAt: formatDistanceToNow(crudSnippet.updatedAt, { addSuffix: true }),
-            user: crudSnippet.user,
+            username: crudSnippet.username,
             title: crudSnippet.title,
             language: crudSnippet.language,
             description: crudSnippet.description,
@@ -102,7 +102,7 @@ export class CrudSnippetsController {
              */
             creator: function () {
               if (req.session.user) {
-                return req.session.user.username === crudSnippet.user
+                return req.session.user.username === crudSnippet.username
               } else {
                 return false
               }
@@ -125,11 +125,11 @@ export class CrudSnippetsController {
   async mySnippets (req, res, next) {
     try {
       const viewData = {
-        crudSnippets: (await CrudSnippet.find({ user: req.session.user.username }))
+        crudSnippets: (await CrudSnippet.find({ username: req.session.user.username }))
           .map(crudSnippet => ({
             id: crudSnippet._id,
             createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
-            user: crudSnippet.user,
+            username: crudSnippet.username,
             title: crudSnippet.title,
             language: crudSnippet.language,
             description: crudSnippet.description,
@@ -142,7 +142,7 @@ export class CrudSnippetsController {
              */
             creator: function () {
               if (req.session.user) {
-                return req.session.user.username === crudSnippet.user
+                return req.session.user.username === crudSnippet.username
               } else {
                 return false
               }
@@ -181,7 +181,7 @@ export class CrudSnippetsController {
   async createPost (req, res) {
     try {
       const crudSnippet = new CrudSnippet({
-        user: req.session.user.username,
+        username: req.session.user.username,
         title: req.body.title,
         language: req.body.language,
         description: req.body.description,
@@ -253,7 +253,7 @@ export class CrudSnippetsController {
         id: crudSnippet._id,
         createdAt: formatDistanceToNow(crudSnippet.createdAt, { addSuffix: true }),
         updatedAt: formatDistanceToNow(crudSnippet.updatedAt, { addSuffix: true }),
-        user: crudSnippet.user,
+        username: crudSnippet.username,
         title: crudSnippet.title,
         language: crudSnippet.language,
         description: crudSnippet.description,
@@ -266,7 +266,7 @@ export class CrudSnippetsController {
          */
         creator: function () {
           if (req.session.user) {
-            return req.session.user.username === crudSnippet.user
+            return req.session.user.username === crudSnippet.username
           } else {
             return false
           }

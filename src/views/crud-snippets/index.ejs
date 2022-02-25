@@ -5,7 +5,7 @@
         <div class="title">
           <h3><%= snippet.title %></h3>
         </div>
-        <span class="author"><%=snippet.language%> | <%=snippet.createdAt%> | By <%=snippet.user%>
+        <span class="author"><%=snippet.language%> | <%=snippet.createdAt%> | By <%=snippet.username%>
           <% if (snippet.creator() === true) { %>
             | <a href="./snippets/<%= snippet.id %>/update">Update</a>
             | <a href="./snippets/<%= snippet.id %>/delete">Delete</a>

@@ -8,7 +8,7 @@
 import mongoose from 'mongoose'
 
 const schema = new mongoose.Schema({
-  user: {
+  username: {
     type: String,
     required: true
   },

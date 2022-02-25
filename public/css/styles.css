@@ -61,6 +61,10 @@ body {
   margin-bottom: 50px;
 }
 
+#snippets p {
+  color: rgb(229, 229, 231);
+}
+
 .snippet {
   margin: 0 auto;
   width: 80%;
