@@ -6,9 +6,11 @@
           <h3><%= snippet.title %></h3>
         </div>
         <span class="author"><%=snippet.language%> | <%=snippet.createdAt%> | By <%=snippet.username%>
-          <% if (snippet.creator() === true) { %>
+          <% if (typeof username !== 'undefined') { %>
+            <% if (username === snippet.username) { %>
             | <a href="./snippets/<%= snippet.id %>/update">Update</a>
             | <a href="./snippets/<%= snippet.id %>/delete">Delete</a>
+          <% } %>
           <% } %>
         </span>
         <div class="tags">

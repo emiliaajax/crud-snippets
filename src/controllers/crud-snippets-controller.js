@@ -53,19 +53,7 @@ export class CrudSnippetsController {
             language: crudSnippet.language,
             description: crudSnippet.description,
             tags: crudSnippet.tags,
-            snippet: crudSnippet.snippet,
-            /**
-             * Returns true if the user is the creator, false otherwise.
-             *
-             * @returns {boolean} True if the user is the creator, false otherwise.
-             */
-            creator: function () {
-              if (req.session.user) {
-                return req.session.user.username === crudSnippet.username
-              } else {
-                return false
-              }
-            }
+            snippet: crudSnippet.snippet
           })).reverse()
       }
       res.render('crud-snippets/index', { viewData })
@@ -94,19 +82,7 @@ export class CrudSnippetsController {
             language: crudSnippet.language,
             description: crudSnippet.description,
             tags: crudSnippet.tags,
-            snippet: crudSnippet.snippet,
-            /**
-             * Returns true if the user is the creator, false otherwise.
-             *
-             * @returns {boolean} True if the user is the creator, false otherwise.
-             */
-            creator: function () {
-              if (req.session.user) {
-                return req.session.user.username === crudSnippet.username
-              } else {
-                return false
-              }
-            }
+            snippet: crudSnippet.snippet
           })).reverse()
       }
       res.render('crud-snippets/index', { viewData })
@@ -134,19 +110,7 @@ export class CrudSnippetsController {
             language: crudSnippet.language,
             description: crudSnippet.description,
             tags: crudSnippet.tags,
-            snippet: crudSnippet.snippet,
-            /**
-             * Returns true if the user is the creator, false otherwise.
-             *
-             * @returns {boolean} True if the user is the creator, false otherwise.
-             */
-            creator: function () {
-              if (req.session.user) {
-                return req.session.user.username === crudSnippet.username
-              } else {
-                return false
-              }
-            }
+            snippet: crudSnippet.snippet
           })).reverse()
       }
       res.render('crud-snippets/index', { viewData })
@@ -154,13 +118,6 @@ export class CrudSnippetsController {
       next(error)
     }
   }
-
-  // isCreator (req, snippet) {
-  //   if (req.session.user) {
-  //     return req.session.user.username === snippet
-  //   }
-  //   return false
-  // }
 
   /**
    * Returns a HTML form for creating a snippet.
@@ -258,19 +215,7 @@ export class CrudSnippetsController {
         language: crudSnippet.language,
         description: crudSnippet.description,
         tags: crudSnippet.tags,
-        snippet: crudSnippet.snippet,
-        /**
-         * Returns true if the user is the creator, false otherwise.
-         *
-         * @returns {boolean} True if the user is the creator, false otherwise.
-         */
-        creator: function () {
-          if (req.session.user) {
-            return req.session.user.username === crudSnippet.username
-          } else {
-            return false
-          }
-        }
+        snippet: crudSnippet.snippet
       }
       res.render('crud-snippets/delete', { viewData })
     } catch (error) {
