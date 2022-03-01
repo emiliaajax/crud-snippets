@@ -1,6 +1,8 @@
 /**
  * The starting point of the application.
  *
+ * The code in the assignment is greatly influenced by course examples and exercises.
+ *
  * @author Emilia Hansson <eh222yn@student.lnu.se>
  * @version 1.0.0
  */
@@ -30,7 +32,6 @@ try {
 
   // Sets HTTP headers to make application more secure.
   app.use(helmet())
-  app.use(helmet({ crossOriginEmbedderPolicy: true }))
   app.use(
     helmet.contentSecurityPolicy({
       directives: {

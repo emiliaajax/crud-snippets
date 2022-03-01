@@ -98,8 +98,11 @@ export class UsersController {
       req.session.flash = { type: 'success', text: 'You have registered successfully!' }
       res.redirect('./login')
     } catch (error) {
-      console.log(error)
-      req.session.flash = { type: 'danger', text: error.message }
+      if (error.name === 'ValidationError') {
+        req.session.flash = { type: 'danger', text: error.errors[Object.keys(error.errors)[0]].properties.message }
+      } else {
+        req.session.flash = { type: 'danger', text: error.message }
+      }
       res.redirect('./register')
     }
   }
