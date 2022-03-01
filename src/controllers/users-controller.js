@@ -31,6 +31,10 @@ export class UsersController {
    */
   async loginPost (req, res, next) {
     try {
+      if (req.body.username.length > 1000 || req.body.password.length > 2000) {
+        req.session.flash = { type: 'danger', text: 'Username or password is too long' }
+        res.redirect('./login')
+      }
       const user = await User.authenticate(req.body.username, req.body.password)
       req.session.regenerate((error) => {
         if (error) {
