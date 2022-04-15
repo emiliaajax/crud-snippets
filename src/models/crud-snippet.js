@@ -27,7 +27,10 @@ const schema = new mongoose.Schema({
     required: true,
     maxlength: [8000, 'The description can\'t exceed 8000 characters']
   },
-  tags: [String],
+  tags: {
+    type: [String],
+    validate: [validateLength, 'The number of tags exceed 100']
+  },
   snippet: {
     type: String,
     required: true,
@@ -49,6 +52,17 @@ const schema = new mongoose.Schema({
     }
   }
 })
+
+/**
+ * Returns true if array length is less than 100, false otherwise.
+ * https://stackoverflow.com/questions/28514790/how-to-set-limit-for-array-size-in-mongoose-schema [retrieved 2022-03-03].
+ *
+ * @param {Array} arr The array to validate.
+ * @returns {boolean} True if array length is less than 100, false otherwise.
+ */
+function validateLength (arr) {
+  return arr.length < 100
+}
 
 // Creates a virtual property.
 schema.virtual('id').get(function () {
