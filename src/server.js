@@ -16,6 +16,9 @@ import { fileURLToPath } from 'node:url'
 import { router } from './routes/router.js'
 import { connectDB } from './config/mongoose.js'
 import helmet from 'helmet'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 try {
   // Connects to MongoDB.
